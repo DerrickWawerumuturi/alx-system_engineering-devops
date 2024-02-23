@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
-# Display ext and handle sigterm
+# Highlander
 
-function sigterm_handler() {
-	echo "I am invincible!!!"
-	exit 0
-}
-
-trap 'sigterm_handler' SIGTERM
+# print I am invincible!!! when receiving a SIGTERM signal
+trap "echo I am invincible!!!" SIGTERM
 
 while true; do
-	echo "To infinity and beyond indefinitely"
-	sleep 2
-done
+  echo "To infinity and beyond"
+  sleep 2
+done;
