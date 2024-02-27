@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
+SENDER = ARGV[0].scan(/from:\+*\w*/).join[5..-1]
+RECEIVER = ARGV[0].scan(/to:\+*\w*/).join[3..-1]
+FLAGS = ARGV[0].scan(/flags:(.*?)\]/).join
 
-from = ARGV[0].scan(/from:(.*?)\]/)
-to = ARGV[0].scan(/to:(.*?)\]/)
-flags = ARGV[0].scan(/flags:(.*?)\]/)
-puts [from, to, flags].join(',')
+msg = SENDER + "," + RECEIVER + "," + FLAGS
+puts msg
