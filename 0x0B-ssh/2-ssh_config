@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-Host ubuntu
-	HostName 52.86.170.27
-	IdentityFile ~/.ssh/school
-	PasswordAuthentication no
+Host server
+Hostname 54.167.174.19
+User ubuntu
+IdentityFile ~/.ssh/school
+PasswordAuthentication no
