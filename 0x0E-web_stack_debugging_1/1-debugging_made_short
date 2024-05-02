@@ -3,4 +3,3 @@
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default # keep in sync
 service nginx restart
 pkill -o nginx
-
