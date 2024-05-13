@@ -1,4 +1,3 @@
-#!/bin/bash
 
 #default policy to block all incoming traffic
 sudo ufw default deny incoming
@@ -6,9 +5,9 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
 #allowed ports
-sudo ufw allow 22/tcp #ssh
-sudo ufw allow 443/tcp #https ssl
-sudo ufw allow 80/tcp #HTTP
+sudo ufw allow 22 #ssh
+sudo ufw allow 443 #https ssl
+sudo ufw allow 80 #HTTP
 
 #enable UFW
 sudo ufw --force enable
