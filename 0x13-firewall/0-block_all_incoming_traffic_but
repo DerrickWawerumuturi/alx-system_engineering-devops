@@ -1,13 +1,6 @@
-
-#default policy to block all incoming traffic
 sudo ufw default deny incoming
-#default policy to block all outgoing traffic
 sudo ufw default allow outgoing
-
-#allowed ports
-sudo ufw allow 22 #ssh
-sudo ufw allow 443 #https ssl
-sudo ufw allow 80 #HTTP
-
-#enable UFW
+sudo ufw allow 22
+sudo ufw allow 443
+sudo ufw allow 80
 sudo ufw enable
