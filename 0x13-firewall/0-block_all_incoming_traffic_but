@@ -10,4 +10,4 @@ sudo ufw allow 443 #https ssl
 sudo ufw allow 80 #HTTP
 
 #enable UFW
-sudo ufw --force enable
+sudo ufw enable
