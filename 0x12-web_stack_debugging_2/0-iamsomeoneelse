@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# check if script is provided with exactly on eargument
+if [ $# -ne 1 ]; then
+	echo "Usage: $) <user>"
+	exit 1
+fi
+
+#get the username 
+sudo -u "$1" whoami
