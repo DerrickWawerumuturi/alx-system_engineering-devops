@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# MySQL primary configuration file
+
+[mysqld]
+# Comment out the bind-address parameter to allow MySQL to listen on all available interfaces
+# bind-address = 127.0.0.1
+
+# Replication settings
+server-id = 1
+log_bin = /var/log/mysql/mysql-bin.log
+binlog_do_db = tyrell_corp
+
+# Other MySQL configurations...
+
