@@ -3,6 +3,8 @@
 
 
 if __name__ == "__main__":
+    """ used a rest api"""
+    
     import requests
     import sys
 
