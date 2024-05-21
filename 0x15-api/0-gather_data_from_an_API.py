@@ -2,11 +2,11 @@
 """A Python script that, for a given employee ID,
 returns infomation about his/her TODO list progress.
 """
+""" required modules """
+import request
+import sys
 
 if __name__ == "__main__":
-    import requests
-    import sys
-
     if len(sys.argv) < 2:
         print("Usage: python 0-gather_data_from_an_API.py <employee_id>")
         sys.exit(1)
