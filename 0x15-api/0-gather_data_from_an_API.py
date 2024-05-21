@@ -4,7 +4,7 @@ returns information about his/her todo list progress."""
 
 if __name__ == "__main__":
     """ required modules """
-    import request
+    import requests
     import sys
     
     if len(sys.argv) < 2:
