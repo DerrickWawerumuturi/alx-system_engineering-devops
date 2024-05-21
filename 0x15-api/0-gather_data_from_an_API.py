@@ -3,7 +3,6 @@
 returns infomation about his/her TODO list progress.
 """
 
-
 if __name__ == "__main__":
     import requests
     import sys
@@ -16,10 +15,8 @@ if __name__ == "__main__":
     URL = "https://jsonplaceholder.typicode.com/"
     param = {"userId": id}
 
-    user = requests.get(URL + "/users", params=param)
-    user = user.json()
+    user = requests.get(URL + "/users", params=param).json()
     employee_name = user[id].get('name')
-
     todos = requests.get(URL + "/todos", params=param).json()
 
     completed_tasks = [task['title'] for task in todos if task['completed']]
