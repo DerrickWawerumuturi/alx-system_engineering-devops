@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" using API in python
-used a rest api
+"""A Python script that, for a given employee ID,
+returns infomation about his/her TODO list progress.
 """
 
 
