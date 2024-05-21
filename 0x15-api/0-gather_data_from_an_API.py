@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """ using API in python"""
-import requests
-import sys
+
 
 if __name__ == "__main__":
+    import requests
+    import sys
+
     # getting value from terminal
     if len(sys.argv) < 2:
         print("Usage: python 0-gather_data_from_an_API.py <employee_id>")
@@ -24,8 +26,7 @@ if __name__ == "__main__":
     employee_name = user[id].get('name')
 
     # get todos
-    todos = requests.get(URL + "/todos", params=param)
-    todos = todos.json()
+    todos = requests.get(URL + "/todos", params=param).json()
 
     # ratio of completed tasks
     completed_tasks = [task['title'] for task in todos if task['completed']]
@@ -34,7 +35,8 @@ if __name__ == "__main__":
 
     # output the results
     print(
-        f"Employee {employee_name} is done with tasks({completed_count}/{total_task})")
+        f"Employee {employee_name} is done with tasks(
+            {completed_count}/{total_task})")
 
     # task title
     for task in completed_tasks:
