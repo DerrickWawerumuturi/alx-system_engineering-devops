@@ -3,28 +3,29 @@
 returns information about his/her todo list progress."""
 
 if __name__ == "__main__":
-    from requests import request
+    """ required modules """
+    import request
     import sys
+    
+    if len(sys.argv) < 2:
+        print("Usage: python 0-gather_data_from_an_API.py <employee_id>")
+        sys.exit(1)
 
-    user_id = sys.argv[1]
-    task_url = f"https://jsonplaceholder.typicode.com/users/{user_id}/todos"
-    user_info_url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
+    id = int(sys.argv[1])
+    URL = "https://jsonplaceholder.typicode.com/"
+    param = {"userId": id}
 
-    tasks_response = (request("GET", task_url))
-    user_response = request("GET", user_info_url)
+    user = requests.get(URL + "/users", params=param).json()
+    employee_name = user[id].get('name')
+    todos = requests.get(URL + "/todos", params=param).json()
 
-    employee_name = user_response.json().get('name')
+    completed_tasks = [task['title'] for task in todos if task['completed']]
+    completed_count = len(completed_tasks)
+    total_task = len(todos)
 
-    completed_tasks = 0
-    total_tasks = len(tasks_response.json())
-    completed_tasks_list = []
+    print(
+        f"Employee {employee_name} is done with tasks(
+            {completed_count}/{total_task})")
 
-    for item in tasks_response.json():
-        if item.get('completed'):
-            completed_tasks_list.append(item.get('title'))
-            completed_tasks += 1
-
-    print("Employee {} is done with tasks({}/{}):".
-          format(employee_name, completed_tasks, total_tasks))
-    for task in completed_tasks_list:
-        print(f"\t{task}")
+    for task in completed_tasks:
+        print(f"\t {task}")
