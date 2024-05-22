@@ -23,7 +23,7 @@ if __name__ == "__main__":
         username = user['username']
 
         todo_response =  requests.get(f"{URL}todos",
-                                      params={"userId":user_id})
+                            params={"userId":user_id})
         if todo_response.status_code != 200:
             print(f"Error: Could not retrieve todos for user {user_id}")
             sys.exit(1)
@@ -38,11 +38,9 @@ if __name__ == "__main__":
                 "completed": task['completed']
             }
             tasks_list.append(task_info)
-            
+
         all_tasks[user_id] = tasks_list
 
     json_filename = "todo_all_employees.json"
     with open(json_filename, mode="w") as json_file:
         json.dump(all_tasks, json_file)
-
-    print(f"Data exprorted to {json_filename}")
