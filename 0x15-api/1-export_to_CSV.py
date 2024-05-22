@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     user = user_response.json()
     employee_name = user.get('username')
-    
+
     print(employee_name)
 
     todos_response = requests.get(f"{URL}todos",
