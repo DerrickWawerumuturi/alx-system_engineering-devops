@@ -20,7 +20,9 @@ if __name__ == "__main__":
         sys.exit(1)
 
     user = user_response.json()
-    employee_name = user.get('name')
+    employee_name = user.get('username')
+    
+    print(employee_name)
 
     todos_response = requests.get(f"{URL}todos",
                                   params={"userId": employee_id})
