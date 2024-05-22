@@ -28,12 +28,12 @@ if __name__ == "__main__":
         print("Error: Todos not found")
         sys.exit(1)
     todos = todos_response.json()
-    
+
     csv_filename = f"{employee_id}.csv"
     with open(csv_filename, mode="w", newline='') as csv_file:
         writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
-        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         for task in todos:
-            writer.writerow([employee_id, employee_name, task['completed'], task["title"]])
-            
+            writer.writerow(
+                [employee_id, employee_name, task['completed'], task["title"]])
+
     print(f"Data exportd to {csv_filename}")
