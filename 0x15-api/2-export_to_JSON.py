@@ -42,10 +42,10 @@ if __name__ == "__main__":
             "username": employee_name,
         }
         tasks_list.append(task_info)
-    
+
     user_task = {employee_id: tasks_list}
-    
+
     with open(json_file, mode="w") as json_file:
         json.dump(user_task, json_file)
-        
+
     print(f"Data exported to {json_file}")
