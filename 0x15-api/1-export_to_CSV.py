@@ -2,7 +2,7 @@
 """ Script that, using a REST API, for a given employee ID,
 returns information about his/her todo list progress.
 """
-import pandas as pd
+import csv
 import requests
 import sys
 
@@ -27,19 +27,13 @@ if __name__ == "__main__":
     if todos_response.status_code != 200:
         print("Error: Todos not found")
         sys.exit(1)
-
     todos = todos_response.json()
-    completed_status = [task['completed'] for task in todos]
-    task_title = [task['title'] for task in todos]
-    total_task = len(todos)
-
-    record = "{}, {}, {},{}".format(
-        employee_id, employee_name, completed_status,
-        task_title 
-    )
     
-    df = pd.DataFrame(record)
-    print(df)
-    
-    df.to_csv(r"USER_ID.csv", index=False)
-
+    csv_filename = f"{employee_id}.csv"
+    with open(csv_filename, mode="w", newline='') as csv_file:
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        for task in todos:
+            writer.writerow([employee_id, employee_name, task['completed'], task["title"]])
+            
+    print(f"Data exportd to {csv_filename}")
