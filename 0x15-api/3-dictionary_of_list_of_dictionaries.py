@@ -22,7 +22,7 @@ if __name__ == "__main__":
         user_id = user['id']
         username = user['username']
 
-        todos_response = requests.get(f"{URL}todos", params={"userId": user_id})
+        todos_response = requests.get(f"{URL}todos",params={"userId": user_id})
         if todos_response.status_code != 200:
             print(f"Error: Could not retrieve todos for user {user_id}")
             sys.exit(1)
