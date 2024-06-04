@@ -14,5 +14,5 @@ def top_ten(subreddit):
         subreddit_dict = r_subreddit.json()
         for i in range(10):
             print(subreddit_dict['data']['children'][i]['data']['title'])
-    except:
+    except Exception:
         print(None)
