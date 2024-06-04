@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """first 10 hot posts listed for a given subreddit"""
-import json
 import requests
-import sys
 
 
 def top_ten(subreddit):
