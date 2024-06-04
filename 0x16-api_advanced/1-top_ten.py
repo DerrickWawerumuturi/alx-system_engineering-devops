@@ -9,7 +9,7 @@ def top_ten(subreddit):
     """ function prints titles of the first 10
     posts or None if subreddit is invalid
     """
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {'User-Agent': 'Get 10 hottest post'}
     params = {'limit': '10'}
 
